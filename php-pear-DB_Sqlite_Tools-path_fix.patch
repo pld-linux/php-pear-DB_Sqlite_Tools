@@ -1,0 +1,24 @@
+diff -burN php-pear-DB_Sqlite_Tools-0.1.3.orig/DB_Sqlite_Tools-0.1.3/Tools.php php-pear-DB_Sqlite_Tools-0.1.3/DB_Sqlite_Tools-0.1.3/Tools.php
+--- php-pear-DB_Sqlite_Tools-0.1.3.orig/DB_Sqlite_Tools-0.1.3/Tools.php	2004-12-04 22:05:56.106094224 +0100
++++ php-pear-DB_Sqlite_Tools-0.1.3/DB_Sqlite_Tools-0.1.3/Tools.php	2004-12-04 22:06:59.921392824 +0100
+@@ -79,16 +79,16 @@
+     {
+         switch ($class) {
+             case 'DB_Sqlite_Tools_DBC':
+-                include ('Tools/DBC.php');
++                include ('DB/Sqlite/Tools/DBC.php');
+             break;
+             case 'DB_Sqlite_Tools_Exception':
+-                include ('Tools/Exception.php');
++                include ('DB/Sqlite/Tools/Exception.php');
+             break;
+             case 'DB_Sqlite_Tools_XMLParser':
+-                 include ('Tools/XMLParser.php');
++                 include ('DB/Sqlite/Tools/XMLParser.php');
+             break;
+             case 'DB_Sqlite_Tools_ArcFour':
+-                include ('Tools/ArcFour.php');
++                include ('DB/Sqlite/Tools/ArcFour.php');
+             break;
+         }
+     }
