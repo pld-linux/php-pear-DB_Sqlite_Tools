@@ -16,6 +16,7 @@ Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
 # Source0-md5:	53273574b1ab5a153feda07ba56b0154
 Patch0:		%{name}-path_fix.patch
 URL:		http://pear.php.net/package/DB_Sqlite_Tools/
+BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 Requires:	php-common >= 3:5.0.0
 Requires:	php-pear
