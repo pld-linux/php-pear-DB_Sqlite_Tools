@@ -6,7 +6,7 @@
 %define		_pearname	%{_class}_%{_subclass}_%{_ssclass}
 
 Summary:	%{_pearname} - OO interface designed to effectively manage and backup Sqlite databases
-Summary(pl):	%{_pearname} - zorientowany obiektowo interfejs do efektywnego zarz±dzania bazami Sqlite
+Summary(pl.UTF-8):   %{_pearname} - zorientowany obiektowo interfejs do efektywnego zarzƒÖdzania bazami Sqlite
 Name:		php-pear-%{_pearname}
 Version:	0.1.6
 Release:	1
@@ -31,11 +31,11 @@ the maintenance and optimisation of several sqlite databases.
 
 In PEAR status of this package is: %{_status}.
 
-%description -l pl
-DB_Sqlite_Tools rozszerza natywne funkcje PHP do obs≥ugi sqlite
-dostarczaj±c kompletnego rozwi±zania do tworzenia kopii zapasowych baz
-danych, replikacji "na øywo", eksportowania danych do formatu XML,
-optymalizacji szybko∂ci. Klasa ta zosta≥a zaprojektowana do obs≥ugi
+%description -l pl.UTF-8
+DB_Sqlite_Tools rozszerza natywne funkcje PHP do obs≈Çugi sqlite
+dostarczajƒÖc kompletnego rozwiƒÖzania do tworzenia kopii zapasowych baz
+danych, replikacji "na ≈ºywo", eksportowania danych do formatu XML,
+optymalizacji szybko≈õci. Klasa ta zosta≈Ça zaprojektowana do obs≈Çugi
 wielu baz danych sqlite.
 
 Ta klasa ma w PEAR status: %{_status}.
