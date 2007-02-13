@@ -6,7 +6,7 @@
 %define		_pearname	%{_class}_%{_subclass}_%{_ssclass}
 
 Summary:	%{_pearname} - OO interface designed to effectively manage and backup Sqlite databases
-Summary(pl.UTF-8):   %{_pearname} - zorientowany obiektowo interfejs do efektywnego zarządzania bazami Sqlite
+Summary(pl.UTF-8):	%{_pearname} - zorientowany obiektowo interfejs do efektywnego zarządzania bazami Sqlite
 Name:		php-pear-%{_pearname}
 Version:	0.1.6
 Release:	1
