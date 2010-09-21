@@ -1,19 +1,15 @@
 %include	/usr/lib/rpm/macros.php
-%define		_class		DB
-%define		_subclass	Sqlite
-%define		_ssclass	Tools
 %define		_status		alpha
-%define		_pearname	%{_class}_%{_subclass}_%{_ssclass}
-
+%define		_pearname	DB_Sqlite_Tools
 Summary:	%{_pearname} - OO interface designed to effectively manage and backup Sqlite databases
 Summary(pl.UTF-8):	%{_pearname} - zorientowany obiektowo interfejs do efektywnego zarządzania bazami Sqlite
 Name:		php-pear-%{_pearname}
-Version:	0.1.6
-Release:	2
+Version:	0.1.7
+Release:	1
 License:	BSD
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	8204a8d346fe5aa52fb57345ac0e1069
+# Source0-md5:	299ccb57141801b5db7edaca54b6862d
 URL:		http://pear.php.net/package/DB_Sqlite_Tools/
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
@@ -43,10 +39,16 @@ Ta klasa ma w PEAR status: %{_status}.
 %prep
 %pear_package_setup
 
+# package build script
+rm .%{php_pear_dir}/generate_package_xml.php
+
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{php_pear_dir}
 %pear_package_install
+
+# tests should not be package
+rm -rf $RPM_BUILD_ROOT%{php_pear_dir}/tests/%{_pearname}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -55,4 +57,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc install.log
 %{php_pear_dir}/.registry/*.reg
-%{php_pear_dir}/%{_class}/%{_subclass}
+%{php_pear_dir}/DB/Sqlite/Tools.php
+%{php_pear_dir}/DB/Sqlite/Tools
