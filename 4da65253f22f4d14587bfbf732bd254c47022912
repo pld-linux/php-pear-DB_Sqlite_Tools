@@ -1,0 +1,2 @@
+- added missing %dir %{php_pear_dir}/DB/Sqlite
+- rel 2
