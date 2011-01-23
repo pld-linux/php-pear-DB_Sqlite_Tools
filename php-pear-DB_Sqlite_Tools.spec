@@ -47,9 +47,6 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{php_pear_dir}
 %pear_package_install
 
-# tests should not be package
-rm -rf $RPM_BUILD_ROOT%{php_pear_dir}/tests/%{_pearname}
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
