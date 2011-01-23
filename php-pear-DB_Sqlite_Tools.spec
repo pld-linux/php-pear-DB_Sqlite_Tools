@@ -1,22 +1,20 @@
 %include	/usr/lib/rpm/macros.php
-%define		_class		DB
-%define		_subclass	Sqlite
-%define		_ssclass	Tools
 %define		_status		alpha
-%define		_pearname	%{_class}_%{_subclass}_%{_ssclass}
-
+%define		_pearname	DB_Sqlite_Tools
 Summary:	%{_pearname} - OO interface designed to effectively manage and backup Sqlite databases
-Summary(pl):	%{_pearname} - zorientowany obiektowo interfejs do efektywnego zarz±dzania bazami Sqlite
+Summary(pl.UTF-8):	%{_pearname} - zorientowany obiektowo interfejs do efektywnego zarzƒÖdzania bazami Sqlite
 Name:		php-pear-%{_pearname}
-Version:	0.1.3
-Release:	3
-License:	PHP 3.0
+Version:	0.1.7
+Release:	2
+License:	BSD
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	53273574b1ab5a153feda07ba56b0154
-Patch0:		%{name}-path_fix.patch
+# Source0-md5:	299ccb57141801b5db7edaca54b6862d
 URL:		http://pear.php.net/package/DB_Sqlite_Tools/
-BuildRequires:	rpm-php-pearprov >= 4.0.2-98
+BuildRequires:	php-pear-PEAR
+BuildRequires:	rpm-php-pearprov >= 4.4.2-11
+BuildRequires:	rpmbuild(macros) >= 1.300
+Requires:	php-common >= 3:5.0.0
 Requires:	php-pear
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -29,29 +27,33 @@ the maintenance and optimisation of several sqlite databases.
 
 In PEAR status of this package is: %{_status}.
 
-%description -l pl
-DB_Sqlite_Tools rozszerza natywne funkcje PHP do obs≥ugi sqlite
-dostarczaj±c kompletnego rozwi±zania do tworzenia kopii zapasowych baz
-danych, replikacji "na øywo", eksportowania danych do formatu XML,
-optymalizacji szybko∂ci. Klasa ta zosta≥a zaprojektowana do obs≥ugi
+%description -l pl.UTF-8
+DB_Sqlite_Tools rozszerza natywne funkcje PHP do obs≈Çugi sqlite
+dostarczajƒÖc kompletnego rozwiƒÖzania do tworzenia kopii zapasowych baz
+danych, replikacji "na ≈ºywo", eksportowania danych do formatu XML,
+optymalizacji szybko≈õci. Klasa ta zosta≈Ça zaprojektowana do obs≈Çugi
 wielu baz danych sqlite.
 
 Ta klasa ma w PEAR status: %{_status}.
 
 %prep
-%setup -q -c
-%patch0 -p1
+%pear_package_setup
+
+# package build script
+rm .%{php_pear_dir}/generate_package_xml.php
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/%{_ssclass}
-
-install %{_pearname}-%{version}/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}
-install %{_pearname}-%{version}/%{_ssclass}/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/%{_ssclass}
+install -d $RPM_BUILD_ROOT%{php_pear_dir}
+%pear_package_install
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%{php_pear_dir}/%{_class}/%{_subclass}
+%doc install.log
+%{php_pear_dir}/.registry/*.reg
+%dir %{php_pear_dir}/DB/Sqlite
+%{php_pear_dir}/DB/Sqlite/Tools.php
+%{php_pear_dir}/DB/Sqlite/Tools
