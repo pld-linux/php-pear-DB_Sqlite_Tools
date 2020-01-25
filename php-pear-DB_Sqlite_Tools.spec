@@ -1,4 +1,3 @@
-%include	/usr/lib/rpm/macros.php
 %define		_status		alpha
 %define		_pearname	DB_Sqlite_Tools
 Summary:	%{_pearname} - OO interface designed to effectively manage and backup Sqlite databases
